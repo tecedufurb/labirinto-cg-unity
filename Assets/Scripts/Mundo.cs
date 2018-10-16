@@ -6,6 +6,7 @@ public class Mundo : MonoBehaviour {
     public GameObject parede;
     public GameObject inicio;
     public GameObject fim;
+    public GameObject jogador;
 
     public byte[,] mundo = new byte[,] {
         { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
@@ -43,5 +44,9 @@ public class Mundo : MonoBehaviour {
                 }
             }
         }
+
+        Vector3 posicaoJogador = FindObjectOfType<Inicio>().gameObject.transform.position;
+        Vector3 novaPosicao = new Vector3(posicaoJogador.x, posicaoJogador.y + 0.5f, posicaoJogador.z);
+        Instantiate(jogador, novaPosicao, Quaternion.identity);
     }
 }
