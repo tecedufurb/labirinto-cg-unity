@@ -1,16 +1,47 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Mundo : MonoBehaviour {
 
+    public GameObject chao;
+    public GameObject parede;
+    public GameObject inicio;
+    public GameObject fim;
+
+    public byte[,] mundo = new byte[,] {
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        { 1, 2, 1, 0, 0, 0, 0, 0, 0, 1 },
+        { 1, 0, 1, 3, 0, 0, 0, 0, 0, 1 },
+        { 1, 0, 1, 0, 0, 0, 0, 1, 0, 1 },
+        { 1, 0, 1, 1, 1, 1, 0, 1, 0, 1 },
+        { 1, 0, 0, 0, 0, 1, 0, 1, 0, 1 },
+        { 1, 0, 1, 1, 1, 1, 0, 1, 0, 1 },
+        { 1, 0, 1, 0, 0, 0, 0, 1, 0, 1 },
+        { 1, 0, 1, 0, 0, 0, 0, 1, 0, 1 },
+        { 1, 0, 1, 0, 0, 0, 0, 1, 0, 1 },
+        { 1, 0, 1, 0, 1, 1, 1, 1, 0, 1 },
+        { 1, 0, 1, 1, 1, 0, 1, 1, 0, 1 },
+        { 1, 0, 0, 0, 0, 0, 1, 1, 0, 1 },
+        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }
+    };
+
 	// Use this for initialization
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        Instantiate(chao);
+        for (int j = 0; j < mundo.GetLength(1); j++) {
+            for (int i = 0; i < mundo.GetLength(0); i++) {
+                switch(mundo[i, j]) {
+                    case 1:
+                        Instantiate(parede, new Vector3(j, 1, i), Quaternion.identity);
+                        break;
+                    case 2:
+                        Instantiate(inicio, new Vector3(j, 0.5f, i), Quaternion.identity);
+                        break;
+                    case 3:
+                        Instantiate(fim, new Vector3(j, 0.5f, i), Quaternion.identity);
+                        break;
+                }
+            }
+        }
+    }
 }
