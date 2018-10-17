@@ -113,82 +113,46 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &707306384
+--- !u!1 &1141855192
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 707306388}
-  - component: {fileID: 707306387}
-  - component: {fileID: 707306386}
-  - component: {fileID: 707306385}
+  - component: {fileID: 1141855194}
+  - component: {fileID: 1141855193}
   m_Layer: 0
-  m_Name: Main Camera
-  m_TagString: MainCamera
+  m_Name: _Factory
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!81 &707306385
-AudioListener:
+  m_IsActive: 1
+--- !u!114 &1141855193
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 707306384}
+  m_GameObject: {fileID: 1141855192}
   m_Enabled: 1
---- !u!124 &707306386
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 707306384}
-  m_Enabled: 1
---- !u!20 &707306387
-Camera:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 707306384}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: -1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!4 &707306388
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffa2121b3282c3d42b65b47cd57265c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parede: {fileID: 1783619248314952, guid: 1886ecf5115cc684ba245cee2f62d6ac, type: 2}
+  chao: {fileID: 1012154960792864, guid: 5038fe8ee95daa14fae47111c3130c9e, type: 2}
+  inicio: {fileID: 1692107686242464, guid: 2fe9f453b18080d4bbe54d4dc4a973b0, type: 2}
+  fim: {fileID: 1942158231778610, guid: 31529d9763bada344a15d74ac3b70864, type: 2}
+  jogador: {fileID: 1753417379466910, guid: 459030f43c9f09046b3595b54e6526e6, type: 2}
+--- !u!4 &1141855194
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 707306384}
-  m_LocalRotation: {x: -0.0010201255, y: -0.7412263, z: 0.67125356, w: -0.0011255806}
-  m_LocalPosition: {x: 6, y: 17, z: 9.02}
+  m_GameObject: {fileID: 1141855192}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -269,7 +233,7 @@ GameObject:
   - component: {fileID: 1824325305}
   - component: {fileID: 1824325304}
   m_Layer: 0
-  m_Name: _mundo
+  m_Name: _Mundo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -287,10 +251,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chao: {fileID: 1012154960792864, guid: 5038fe8ee95daa14fae47111c3130c9e, type: 2}
-  parede: {fileID: 1783619248314952, guid: 1886ecf5115cc684ba245cee2f62d6ac, type: 2}
-  inicio: {fileID: 1692107686242464, guid: 2fe9f453b18080d4bbe54d4dc4a973b0, type: 2}
-  fim: {fileID: 1942158231778610, guid: 31529d9763bada344a15d74ac3b70864, type: 2}
   jogador: {fileID: 1753417379466910, guid: 459030f43c9f09046b3595b54e6526e6, type: 2}
+  factory: {fileID: 1141855193}
 --- !u!4 &1824325305
 Transform:
   m_ObjectHideFlags: 0
