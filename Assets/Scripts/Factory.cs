@@ -11,6 +11,7 @@ public class Factory : MonoBehaviour {
     public void CriarObjetoDoMundo(TiposDeObjetos tipo, int x, int z) {
         switch (tipo) {
             case TiposDeObjetos.PAREDE:
+            //TODO: como usa o Quaternion
                 Instantiate(parede, new Vector3(z, 1, x), Quaternion.identity);
                 break;
             case TiposDeObjetos.INICIO:
