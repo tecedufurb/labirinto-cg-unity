@@ -6,7 +6,11 @@
 public class Fim : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
-        Debug.Log("Fim de jogo!");
+        if(other.CompareTag("Player")) {
+            other.gameObject.GetComponent<Jogador>().PodeAndar = false;
+            Debug.Log("Fim de jogo!");
+        }
+            
     }
 
 }

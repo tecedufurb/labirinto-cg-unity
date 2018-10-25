@@ -3,5 +3,5 @@
     PAREDE = 1,
     INICIO = 2,
     FIM = 3,
-    CHAO
+    CHAO = 4
 }

@@ -2,17 +2,21 @@
 
 public class Factory : MonoBehaviour {
 
-    public GameObject parede;
-    public GameObject chao;
-    public GameObject inicio;
-    public GameObject fim;
-    public GameObject jogador;
+    [SerializeField] private GameObject parede;
+    [SerializeField] private GameObject chao;
+    [SerializeField] private GameObject inicio;
+    [SerializeField] private GameObject fim;
+    [SerializeField] private GameObject jogador;
+    [SerializeField] private GameObject agrupadorParedes;
+
 
     public void CriarObjetoDoMundo(TiposDeObjetos tipo, int x, int z) {
         switch (tipo) {
             case TiposDeObjetos.PAREDE:
+                GameObject paredeTemp = Instantiate(parede, new Vector3(z, 1.5f, x), Quaternion.identity);
+                paredeTemp.name = string.Format("Parede({0}, {1})", x+1, z+1);
+                paredeTemp.transform.parent = agrupadorParedes.transform;
             //TODO: como usa o Quaternion
-                Instantiate(parede, new Vector3(z, 1, x), Quaternion.identity);
                 break;
             case TiposDeObjetos.INICIO:
                 Instantiate(inicio, new Vector3(z, 0.5f, x), Quaternion.identity);

@@ -1,10 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Mundo : MonoBehaviour {
 
-    public GameObject chao;
-    public GameObject jogador;
     public Factory factory;
+    public static Mundo instance = null;
 
     public int[,] mundo = new int[,] {
         { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
@@ -24,19 +24,27 @@ public class Mundo : MonoBehaviour {
         { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }
     };
 
-	void Start () {
-        factory.CriarObjetoDoMundo(TiposDeObjetos.CHAO, 0, 0);
-
-        for (int x = 0; x < mundo.GetLength(0); x++) {
-            for (int y = 0; y < mundo.GetLength(1); y++) {
-                factory.CriarObjetoDoMundo((TiposDeObjetos)mundo[x,y], x, y);
-            }
-        }
+    void Awake() {
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
     }
 
-    private Vector3 GetPontoInicio() {
-        Vector3 posicaoJogador = FindObjectOfType<Inicio>().gameObject.transform.position;
-        Vector3 pontoInicio = new Vector3(posicaoJogador.x, posicaoJogador.y + 0.5f, posicaoJogador.z);
-        return pontoInicio;
+    void Start () {
+        StartCoroutine(CriarMundo());
+    }
+
+    private IEnumerator CriarMundo() {
+        factory.CriarObjetoDoMundo(TiposDeObjetos.CHAO, 0, 0);
+
+        WaitForSeconds delay = new WaitForSeconds(0.01f);
+        for (int x = 0; x < mundo.GetLength(0); x++) {
+            for (int y = 0; y < mundo.GetLength(1); y++) {
+                factory.CriarObjetoDoMundo((TiposDeObjetos)mundo[x, y], x, y);
+                yield return delay;
+            }
+        }
+        FindObjectOfType<Jogador>().PodeAndar = true;
     }
 }
