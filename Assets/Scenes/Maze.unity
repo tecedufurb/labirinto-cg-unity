@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 485565091}
   - component: {fileID: 485565092}
   m_Layer: 0
-  m_Name: Jogo
+  m_Name: Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,12 +181,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa2121b3282c3d42b65b47cd57265c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parede: {fileID: 1783619248314952, guid: 1886ecf5115cc684ba245cee2f62d6ac, type: 2}
-  chao: {fileID: 1012154960792864, guid: 5038fe8ee95daa14fae47111c3130c9e, type: 2}
-  inicio: {fileID: 1692107686242464, guid: 2fe9f453b18080d4bbe54d4dc4a973b0, type: 2}
-  fim: {fileID: 1942158231778610, guid: 31529d9763bada344a15d74ac3b70864, type: 2}
-  jogador: {fileID: 1753417379466910, guid: 459030f43c9f09046b3595b54e6526e6, type: 2}
-  agrupadorParedes: {fileID: 1315822857}
+  wall: {fileID: 1783619248314952, guid: 1886ecf5115cc684ba245cee2f62d6ac, type: 2}
+  ground: {fileID: 1012154960792864, guid: 5038fe8ee95daa14fae47111c3130c9e, type: 2}
+  start: {fileID: 1692107686242464, guid: 2fe9f453b18080d4bbe54d4dc4a973b0, type: 2}
+  end: {fileID: 1942158231778610, guid: 31529d9763bada344a15d74ac3b70864, type: 2}
+  player: {fileID: 1753417379466910, guid: 459030f43c9f09046b3595b54e6526e6, type: 2}
+  wallsWrapper: {fileID: 1315822857}
 --- !u!4 &1141855194
 Transform:
   m_ObjectHideFlags: 0
@@ -209,7 +209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1315822858}
   m_Layer: 0
-  m_Name: AgrupadorParedes
+  m_Name: WallsWrapper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 1824325305}
   - component: {fileID: 1824325304}
   m_Layer: 0
-  m_Name: Mundo
+  m_Name: World
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

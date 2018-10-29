@@ -3,12 +3,12 @@
 /// <summary>
 /// Classe teste
 /// </summary>
-public class Fim : MonoBehaviour {
+public class End : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Player")) {
-            other.gameObject.GetComponent<Jogador>().PodeAndar = false;
-            Debug.Log("Fim de jogo!");
+            other.gameObject.GetComponent<Player>().CanWalk = false;
+            Debug.Log("Game Over!");
         }
             
     }

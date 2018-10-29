@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Mundo : MonoBehaviour {
+public class World : MonoBehaviour {
 
     public Factory factory;
-    public static Mundo instance = null;
+    public static World instance = null;
 
-    public int[,] mundo = new int[,] {
+    public int[,] world_matrix = new int[,] {
         { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
         { 1, 0, 1, 0, 0, 0, 0, 0, 0, 1 },
         { 1, 2, 1, 3, 0, 0, 0, 0, 0, 1 },
@@ -32,19 +32,26 @@ public class Mundo : MonoBehaviour {
     }
 
     void Start () {
-        StartCoroutine(CriarMundo());
+        StartCoroutine(CreateWorld());
     }
 
-    private IEnumerator CriarMundo() {
-        factory.CriarObjetoDoMundo(TiposDeObjetos.CHAO, 0, 0);
+    /// <summary>
+    /// Run through the 'world' matrix defined in this class, calling the function CreateObjectOfTheWorld
+    /// from the Factory class, passing the element of the matrix as parameter.
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator CreateWorld() {
+        factory.CriarObjetoDoMundo(ObjectsType.GROUND, 0, 0);
 
         WaitForSeconds delay = new WaitForSeconds(0.01f);
-        for (int x = 0; x < mundo.GetLength(0); x++) {
-            for (int y = 0; y < mundo.GetLength(1); y++) {
-                factory.CriarObjetoDoMundo((TiposDeObjetos)mundo[x, y], x, y);
+        for (int x = 0; x < world_matrix.GetLength(0); x++) {
+            for (int y = 0; y < world_matrix.GetLength(1); y++) {
+                #if UNITY_EDITOR || UNITY_IOS || UNITY_ANDROID || UNITY_STANDALONE
+                    factory.CriarObjetoDoMundo((ObjectsType)world_matrix[x, y], x, y);
+                #endif
                 yield return delay;
             }
         }
-        FindObjectOfType<Jogador>().PodeAndar = true;
+        FindObjectOfType<Player>().CanWalk = true;
     }
 }

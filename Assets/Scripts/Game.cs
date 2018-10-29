@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Jogo : MonoBehaviour {
+public class Game : MonoBehaviour {
 
-    public static Jogo instance = null;
+    public static Game instance = null;
 
     void Awake() {
         if (instance == null)

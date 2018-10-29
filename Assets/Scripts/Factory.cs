@@ -2,31 +2,30 @@
 
 public class Factory : MonoBehaviour {
 
-    [SerializeField] private GameObject parede;
-    [SerializeField] private GameObject chao;
-    [SerializeField] private GameObject inicio;
-    [SerializeField] private GameObject fim;
-    [SerializeField] private GameObject jogador;
-    [SerializeField] private GameObject agrupadorParedes;
+    [SerializeField] private GameObject wall;
+    [SerializeField] private GameObject ground;
+    [SerializeField] private GameObject start;
+    [SerializeField] private GameObject end;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject wallsWrapper;
 
-
-    public void CriarObjetoDoMundo(TiposDeObjetos tipo, int x, int z) {
-        switch (tipo) {
-            case TiposDeObjetos.PAREDE:
-                GameObject paredeTemp = Instantiate(parede, new Vector3(z, 1.5f, x), Quaternion.identity);
-                paredeTemp.name = string.Format("Parede({0}, {1})", x+1, z+1);
-                paredeTemp.transform.parent = agrupadorParedes.transform;
-            //TODO: como usa o Quaternion
+    public void CriarObjetoDoMundo(ObjectsType type, int x, int z) {
+        switch (type) {
+            case ObjectsType.WALL:
+                // TODO: como usa o Quaternion
+                GameObject wallTemp = Instantiate(wall, new Vector3(z, 1.5f, x), Quaternion.identity);
+                wallTemp.name = string.Format("{0}({1}, {2})", wall.name, x+1, z+1);
+                wallTemp.transform.parent = wallsWrapper.transform;
                 break;
-            case TiposDeObjetos.INICIO:
-                Instantiate(inicio, new Vector3(z, 0.5f, x), Quaternion.identity);
-                Instantiate(jogador, new Vector3(z, 1f, x), Quaternion.identity);
+            case ObjectsType.START:
+                Instantiate(start, new Vector3(z, 0.5f, x), Quaternion.identity);
+                Instantiate(player, new Vector3(z, 1f, x), Quaternion.identity);
                 break;
-            case TiposDeObjetos.FIM:
-                Instantiate(fim, new Vector3(z, 0.5f, x), Quaternion.identity);
+            case ObjectsType.END:
+                Instantiate(end, new Vector3(z, 0.5f, x), Quaternion.identity);
                 break;
-            case TiposDeObjetos.CHAO:
-                Instantiate(chao);
+            case ObjectsType.GROUND:
+                Instantiate(ground);
                 break;
         }
     }
