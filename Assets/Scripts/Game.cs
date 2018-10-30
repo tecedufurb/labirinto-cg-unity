@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Manages general game stuff such as inputs given by the player.
+/// </summary>
 public class Game : MonoBehaviour {
 
     public static Game instance = null;
@@ -13,9 +16,12 @@ public class Game : MonoBehaviour {
     }
 
     void Update () {
-        if (Input.GetKeyDown(KeyCode.R)) {
-            Scene currentScene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(currentScene.name);
-        }
+        if (Input.GetKeyDown(KeyCode.R))
+            ReloadCurrentScene();
+    }
+
+    private void ReloadCurrentScene() {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
     }
 }

@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Handles the instantiation ofthe objects in the scene.
+/// </summary>
 public class Factory : MonoBehaviour {
 
     [SerializeField] private GameObject wall;
@@ -9,22 +12,28 @@ public class Factory : MonoBehaviour {
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject wallsWrapper;
 
-    public void CriarObjetoDoMundo(ObjectsType type, int x, int z) {
+    /// <summary>
+    /// Instantiates the specified object in the scene.
+    /// </summary>
+    /// <param name="type">The type of the object to be created.</param>
+    /// <param name="x">The x position.</param>
+    /// <param name="z">The z position.</param>
+    public void CreateObjectOfTheWorld(ObjectTypes type, int x, int z) {
         switch (type) {
-            case ObjectsType.WALL:
+            case ObjectTypes.WALL:
                 // TODO: como usa o Quaternion
                 GameObject wallTemp = Instantiate(wall, new Vector3(z, 1.5f, x), Quaternion.identity);
                 wallTemp.name = string.Format("{0}({1}, {2})", wall.name, x+1, z+1);
                 wallTemp.transform.parent = wallsWrapper.transform;
                 break;
-            case ObjectsType.START:
+            case ObjectTypes.START:
                 Instantiate(start, new Vector3(z, 0.5f, x), Quaternion.identity);
                 Instantiate(player, new Vector3(z, 1f, x), Quaternion.identity);
                 break;
-            case ObjectsType.END:
+            case ObjectTypes.END:
                 Instantiate(end, new Vector3(z, 0.5f, x), Quaternion.identity);
                 break;
-            case ObjectsType.GROUND:
+            case ObjectTypes.GROUND:
                 Instantiate(ground);
                 break;
         }

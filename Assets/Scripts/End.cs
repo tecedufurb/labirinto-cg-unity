@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// Classe teste
+/// Represents the end of the maze. 
+/// When the player reaches this point the game is ended.
 /// </summary>
 public class End : MonoBehaviour {
 
