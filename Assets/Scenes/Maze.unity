@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa2121b3282c3d42b65b47cd57265c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wall: {fileID: 1783619248314952, guid: 1886ecf5115cc684ba245cee2f62d6ac, type: 2}
+  wall: {fileID: 1900498144692096, guid: 08cdd38bfd3e26d42b852d566408a772, type: 2}
   ground: {fileID: 1012154960792864, guid: 5038fe8ee95daa14fae47111c3130c9e, type: 2}
   start: {fileID: 1692107686242464, guid: 2fe9f453b18080d4bbe54d4dc4a973b0, type: 2}
   end: {fileID: 1942158231778610, guid: 31529d9763bada344a15d74ac3b70864, type: 2}

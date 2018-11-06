@@ -22,7 +22,7 @@ public class Factory : MonoBehaviour {
         switch (type) {
             case ObjectTypes.WALL:
                 // TODO: como usa o Quaternion
-                GameObject wallTemp = Instantiate(wall, new Vector3(z, 1.5f, x), Quaternion.identity);
+                GameObject wallTemp = Instantiate(wall, new Vector3(z, 2.5f, x), Quaternion.Euler(90, 0, 0));
                 wallTemp.name = string.Format("{0}({1}, {2})", wall.name, x+1, z+1);
                 wallTemp.transform.parent = wallsWrapper.transform;
                 break;

@@ -40,23 +40,21 @@ public class World : MonoBehaviour {
     }
 
     void Start () {
-        StartCoroutine(CreateMaze());
+        CreateMaze();
     }
 
     /// <summary>
     /// Runs through the elements of the world_matrix, calling a function
     /// from the Factory class that creates an specific object.
     /// </summary>
-    private IEnumerator CreateMaze() {
+    private void CreateMaze() {
         factory.CreateObjectOfTheWorld(ObjectTypes.GROUND, 0, 0);
 
-        WaitForSeconds delay = new WaitForSeconds(0.01f);
         for (int x = 0; x < worldMatrix.GetLength(0); x++) {
             for (int y = 0; y < worldMatrix.GetLength(1); y++) {
                 #if UNITY_EDITOR || UNITY_IOS || UNITY_ANDROID || UNITY_STANDALONE
                     factory.CreateObjectOfTheWorld((ObjectTypes)worldMatrix[x, y], x, y);
                 #endif
-                yield return delay;
             }
         }
         FindObjectOfType<Player>().CanWalk = true;
